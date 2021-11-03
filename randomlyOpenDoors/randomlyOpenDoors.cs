@@ -47,7 +47,7 @@ namespace randomlyOpenDoors
 
         public static void findDoors()
         {
-            foreach (var door in Map.Doors)
+            foreach (Door door in Map.Doors)
             {
                 door.IsOpen = true;
             }
