@@ -16,7 +16,7 @@ namespace randomlyOpenDoors.Handlers
 
         public void OnRoundStarted()
         {
-            Map.Broadcast(6, "Containment breach!");
+            Map.Broadcast(6, randomlyOpenDoors.Instance.Config.RoundStartedMessage);
         }
     }
 }

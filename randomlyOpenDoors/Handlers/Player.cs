@@ -1,4 +1,5 @@
-﻿using Exiled.Events.EventArgs;
+﻿using Exiled.API.Features;
+using Exiled.Events.EventArgs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +12,21 @@ namespace randomlyOpenDoors.Handlers
     {
         public void OnLeft(LeftEventArgs ev)
         {
-            Map.Broadcast(6, $"{ev.Player} has left the server.");
+            string message = randomlyOpenDoors.Instance.Config.LeftMessage.Replace("{player}", ev.Player.Nickname);
+            Map.Broadcast(6, message);
         }
 
         public void OnJoined(JoinedEventArgs ev)
         {
-            Map.Broadcast(6, $"{ev.Player} has joined the server.");
+            string message = randomlyOpenDoors.Instance.Config.JoinedMessage.Replace("{player}", ev.Player.Nickname);
+            Map.Broadcast(6, message);
         }
 
         public void OnInteractingDoor(InteractingDoorEventArgs ev)
         {
             if (ev.IsAllowed == false)
             {
-                ev.Player.Broadcast(3, "You walked into my trap!");
+                ev.Player.Broadcast (3, randomlyOpenDoors.Instance.Config.BoobyTrapMessage);
                 ev.Player.Kill(DamageTypes.Lure);
             }
         }

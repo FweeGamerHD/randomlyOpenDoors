@@ -11,7 +11,7 @@ namespace randomlyOpenDoors
     public class randomlyOpenDoors : Plugin<Config>
     {
         private static readonly Lazy<randomlyOpenDoors> LazyInstance = new Lazy<randomlyOpenDoors>(() => new randomlyOpenDoors());
-        public randomlyOpenDoors Instance => LazyInstance.Value;
+        public static randomlyOpenDoors Instance => LazyInstance.Value;
 
         public override PluginPriority Priority { get; } = PluginPriority.Medium;
 
