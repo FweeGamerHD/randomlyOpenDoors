@@ -4,7 +4,6 @@ using Exiled.Events;
 using System;
 
 using Server = Exiled.Events.Handlers.Server;
-using Player = Exiled.Events.Handlers.Player;
 
 namespace randomlyOpenDoors
 {
