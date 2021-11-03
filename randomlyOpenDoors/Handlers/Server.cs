@@ -9,7 +9,7 @@ namespace randomlyOpenDoors.Handlers
             int chance = randomlyOpenDoors.Instance.Config.Chance;
             Log.Info("Opening Doors with a " + chance + "% Chance.");
 
-
+            randomlyOpenDoors.findDoors();
         }
     }
 }
