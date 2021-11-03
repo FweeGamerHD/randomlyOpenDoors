@@ -59,7 +59,8 @@ namespace randomlyOpenDoors
                 int chance = randomlyOpenDoors.Instance.Config.Chance;
                 if (random <= chance)
                 {
-                    door.NetworkTargetState = true;
+                    door.NetworkTargetState = false;
+                    door.IsConsideredOpen();
                 }
             }
         }
