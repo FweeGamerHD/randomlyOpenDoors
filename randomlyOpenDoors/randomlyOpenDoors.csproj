@@ -34,6 +34,9 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\Desktop\steamcmd\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="CommandSystem.Core">
+      <HintPath>..\..\..\..\Desktop\steamcmd\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\CommandSystem.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Exiled.API">
       <HintPath>..\..\..\..\AppData\Roaming\EXILED\Plugins\dependencies\Exiled.API.dll</HintPath>
     </Reference>
@@ -53,14 +56,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Allow.cs" />
+    <Compile Include="Commands\Deny.cs" />
+    <Compile Include="Commands\HelloWorld.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Handlers\Player.cs" />
     <Compile Include="Handlers\Server.cs" />
     <Compile Include="randomlyOpenDoors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
