@@ -15,7 +15,6 @@ namespace randomlyOpenDoors
 
         public override PluginPriority Priority { get; } = PluginPriority.Medium;
 
-        private Handlers.Player player;
         private Handlers.Server server;
 
         private randomlyOpenDoors()
@@ -34,27 +33,16 @@ namespace randomlyOpenDoors
 
         public void RegisterEvents()
         {
-            player = new Handlers.Player();
             server = new Handlers.Server();
 
-            Server.WaitingForPlayers += server.OnWaitingForPlayers;
             Server.RoundStarted += server.OnRoundStarted;
 
-            Player.Left += player.OnLeft;
-            Player.Joined += player.OnJoined;
-            Player.InteractingDoor += player.OnInteractingDoor;
         }
 
         public void UnRegisterEvents()
         {
-            Server.WaitingForPlayers -= server.OnWaitingForPlayers;
             Server.RoundStarted -= server.OnRoundStarted;
 
-            Player.Left -= player.OnLeft;
-            Player.Joined -= player.OnJoined;
-            Player.InteractingDoor -= player.OnInteractingDoor;
-
-            player = null;
             server = null;
         }
     }

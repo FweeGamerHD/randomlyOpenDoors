@@ -9,14 +9,9 @@ namespace randomlyOpenDoors.Handlers
 {
     class Server
     {
-        public void OnWaitingForPlayers()
-        {
-            Log.Info("Waiting for Players...");
-        }
-
         public void OnRoundStarted()
         {
-            Map.Broadcast(6, randomlyOpenDoors.Instance.Config.RoundStartedMessage);
+            Log.Info("Opening Doors with a {chance}% Chance.");
         }
     }
 }
