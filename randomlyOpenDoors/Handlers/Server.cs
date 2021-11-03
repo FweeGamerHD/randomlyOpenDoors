@@ -6,7 +6,10 @@ namespace randomlyOpenDoors.Handlers
     {
         public void OnRoundStarted()
         {
-            Log.Info("Opening Doors with a {chance}% Chance.");
+            int chance = randomlyOpenDoors.Instance.Config.Chance;
+            Log.Info("Opening Doors with a " + chance + "% Chance.");
+
+
         }
     }
 }
