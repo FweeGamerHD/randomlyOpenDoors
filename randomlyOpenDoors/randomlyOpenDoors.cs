@@ -1,7 +1,7 @@
-﻿using Exiled.API.Enums;
+﻿using System;
+using Exiled.API.Enums;
 using Exiled.API.Features;
 using Interactables.Interobjects.DoorUtils;
-using System;
 
 using Server = Exiled.Events.Handlers.Server;
 
@@ -47,21 +47,9 @@ namespace randomlyOpenDoors
 
         public static void findDoors()
         {
-            System.Collections.IList list = Map.Doors;
-            for (int i = 0; i < list.Count; i++)
+            foreach (var door in Map.Doors)
             {
-                DoorVariant door = (DoorVariant)list[i];
-
-
-                Random rnd = new Random();
-                int random = rnd.Next(1, 100);
-
-                int chance = randomlyOpenDoors.Instance.Config.Chance;
-                if (random <= chance)
-                {
-                    door.NetworkTargetState = false;
-                    door.IsConsideredOpen();
-                }
+                door.IsOpen = true;
             }
         }
     }
