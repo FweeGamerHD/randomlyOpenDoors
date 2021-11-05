@@ -15,20 +15,21 @@ namespace randomlyOpenDoors
         public override Version Version => new Version(1, 0, 0);
         public override Version RequiredExiledVersion => new Version(3, 4, 0);
 
-        private static readonly Lazy<randomlyOpenDoors> LazyInstance = new Lazy<randomlyOpenDoors>(() => new randomlyOpenDoors());
-        public static randomlyOpenDoors Instance => LazyInstance.Value;
+        public static randomlyOpenDoors Instance;
 
         public override PluginPriority Priority { get; } = PluginPriority.Medium;
 
         private Handlers.Server server;
 
-        private randomlyOpenDoors()
+        public randomlyOpenDoors()
         {
         }
 
         public override void OnEnabled()
         {
             RegisterEvents();
+
+            Instance = this;
         }
 
         public override void OnDisabled()
