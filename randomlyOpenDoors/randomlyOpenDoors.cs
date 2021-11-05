@@ -53,7 +53,19 @@ namespace randomlyOpenDoors
 
         public static void findDoors()
         {
+            foreach (Room r in Map.Rooms)
+            {
+                foreach (Door d in r.Doors)
+                {
+                    Random rnd = new Random();
+                    int number = rnd.Next(1, 100);
 
+                    if (number <= randomlyOpenDoors.Instance.Config.Chance)
+                    {
+                        d.IsOpen = true;
+                    }
+                }
+            }
         }
 
     }
